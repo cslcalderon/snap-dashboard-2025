@@ -830,3 +830,7 @@ health_percentage <- snap_and_healthcov |>
   
 health_percentage
 ```
+
+```{r}
+data <- "sofia "
+```

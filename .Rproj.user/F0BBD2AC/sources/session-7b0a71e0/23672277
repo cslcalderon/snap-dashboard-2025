@@ -3,7 +3,7 @@
     "path": "~/Library/CloudStorage/OneDrive-CenterforPublicPolicyPriorities/Coda Rayo-Garza's files - SNAP & Employment/SNAP_Dashboard/Sofia_SNAP_Data.qmd",
     "project_path": "Sofia_SNAP_Data.qmd",
     "type": "quarto_markdown",
-    "hash": "0",
+    "hash": "1823027185",
     "contents": "",
     "dirty": false,
     "created": 1744857884642.0,
@@ -15,11 +15,11 @@
         "tempName": "Untitled1",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "821,0",
+        "cursorPosition": "833,0",
         "scrollLine": "0",
         "docOutlineVisible": "1",
         "rmdVisualCollapsedChunks": "",
-        "rmdVisualModeLocation": "201:269",
+        "rmdVisualModeLocation": "29282:16767",
         "docOutlineSize": "42"
     },
     "folds": "",
@@ -27,7 +27,7 @@
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1744897594607,
+    "last_content_update": 1744900871738,
     "read_only": false,
     "read_only_alternatives": []
 }
