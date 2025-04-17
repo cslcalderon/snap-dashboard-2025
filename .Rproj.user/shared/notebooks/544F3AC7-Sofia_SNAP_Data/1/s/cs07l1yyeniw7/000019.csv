@@ -1,0 +1,8 @@
+"0","snap_and_healthcov <- snap_design |>"
+"0","  filter(!is.na(HCOVANY)) |>"
+"0","  mutate(health_coverage = ifelse(HCOVANY== 2, ""Yes"", ""No""))"
+"0",""
+"0","snap_and_healthcov|>"
+"0","  ggplot(aes(x = health_coverage, fill = snap_status)) +"
+"0","  geom_bar() + "
+"0","  labs(title = ""Healthcare Coverage for SNAP vs Non-SNAP Recipients"")"

@@ -738,6 +738,17 @@ snap_no_rec |>
     plot.title      = element_text(hjust = 0.5, margin = margin(b = 10)),
     plot.margin     = unit(c(1.5, 1, 1, 1), "cm")
   )
+
+snap_design |>
+  ggplot(aes(x = industry, fill = snap_status)) + 
+  geom_bar() + 
+  coord_flip() + 
+  labs(title = "Non SNAP Recipients Industry Distribution") +
+  theme_minimal() +
+  theme(
+    plot.title      = element_text(hjust = 0.5, margin = margin(b = 10)),
+    plot.margin     = unit(c(1.5, 1, 1, 1), "cm")
+  )
 ```
 
 ```{r}
@@ -793,4 +804,29 @@ diff_snap_occ |>
 ```{r}
 diff_snap_occ|>
   select(industry, ind_diff)
+```
+
+Healthcare
+
+```{r}
+snap_and_healthcov <- snap_design |>
+  filter(!is.na(HCOVANY)) |>
+  mutate(health_coverage = ifelse(HCOVANY== 2, "Yes", "No"))
+
+snap_and_healthcov|>
+  ggplot(aes(x = health_coverage, fill = snap_status)) +
+  geom_bar() + 
+  labs(title = "Healthcare Coverage for SNAP vs Non-SNAP Recipients")
+```
+
+```{r}
+health_percentage <- snap_and_healthcov |>
+  group_by(snap_status) |>
+  summarize(
+    n_yes   = sum(health_coverage == "Yes", na.rm = TRUE),
+    total   = n(),
+    health_per = n_yes / total
+  )
+  
+health_percentage
 ```
