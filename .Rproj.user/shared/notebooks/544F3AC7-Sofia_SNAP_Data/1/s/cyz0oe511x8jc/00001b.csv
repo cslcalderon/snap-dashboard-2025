@@ -1,0 +1,548 @@
+"0","# 1) Define the full lookup as a little TSV in a string
+occ_lookup <- readr::read_tsv(
+  ""OCC\toccupation
+000\tN/A (not applicable)
+0010\tChief executives and legislators
+0020\tGeneral and operations managers
+0040\tAdvertising and promotions managers
+0051\tMarketing managers
+0052\tSales managers
+0060\tPublic relations and fundraising managers
+0101\tAdministrative services managers
+0102\tFacilities managers
+0110\tComputer and information systems managers
+0120\tFinancial managers
+0135\tCompensation and benefits managers
+0136\tHuman resources managers
+0137\tTraining and development managers
+0140\tIndustrial production managers
+0150\tPurchasing managers
+0160\tTransportation, storage, and distribution managers
+0205\tFarmers, ranchers, and other agricultural managers
+0220\tConstruction managers
+0230\tEducation and childcare administrators
+0300\tArchitectural and engineering managers
+0310\tFood service managers
+0335\tEntertainment and recreation managers
+0340\tLodging managers
+0350\tMedical and health services managers
+0360\tNatural sciences managers
+0410\tProperty, real estate, and community association managers
+0420\tSocial and community service managers
+0425\tEmergency management directors
+0440\tOther managers
+0500\tAgents and business managers of artists, performers, and athletes
+0510\tBuyers and purchasing agents, farm products
+0520\tWholesale and retail buyers, except farm products
+0530\tPurchasing agents, except wholesale, retail, and farm products
+0540\tClaims adjusters, appraisers, examiners, and investigators
+0565\tCompliance officers
+0600\tCost estimators
+0630\tHuman resources workers
+0640\tCompensation, benefits, and job analysis specialists
+0650\tTraining and development specialists
+0700\tLogisticians
+0705\tProject management specialists
+0710\tManagement analysts
+0725\tMeeting, convention, and event planners
+0726\tFundraisers
+0735\tMarket research analysts and marketing specialists
+0750\tBusiness operations specialists, all other
+0800\tAccountants and auditors
+0810\tProperty appraisers and assessors
+0820\tBudget analysts
+0830\tCredit analysts
+0845\tFinancial and investment analysts
+0850\tPersonal financial advisors
+0860\tInsurance underwriters
+0900\tFinancial examiners
+0910\tCredit counselors and loan officers
+0930\tTax examiners and collectors, and revenue agents
+0940\tTax preparers
+0960\tOther financial specialists
+1005\tComputer and information research scientists
+1006\tComputer systems analysts
+1007\tInformation security analysts
+1010\tComputer programmers
+1021\tSoftware developers
+1022\tSoftware quality assurance analysts and testers
+1031\tWeb developers
+1032\tWeb and digital interface designers
+1050\tComputer support specialists
+1065\tDatabase administrators and architects
+1105\tNetwork and computer systems administrators
+1106\tComputer network architects
+1108\tComputer occupations, all other
+1200\tActuaries
+1220\tOperations research analysts
+1240\tOther mathematical science occupations
+1305\tArchitects, except landscape and naval
+1306\tLandscape architects
+1310\tSurveyors, cartographers, and photogrammetrists
+1320\tAerospace engineers
+1340\tBiomedical and agricultural engineers
+1350\tChemical engineers
+1360\tCivil engineers
+1400\tComputer hardware engineers
+1410\tElectrical and electronics engineers
+1420\tEnvironmental engineers
+1430\tIndustrial engineers, including health and safety
+1440\tMarine engineers and naval architects
+1450\tMaterials engineers
+1460\tMechanical engineers
+1520\tPetroleum, mining and geological engineers, including mining safety engineers
+1530\tOther engineers
+1541\tArchitectural and civil drafters
+1545\tOther drafters
+1551\tElectrical and electronic engineering technologists and technicians
+1555\tOther engineering technologists and technicians, except drafters
+1560\tSurveying and mapping technicians
+1600\tAgricultural and food scientists
+1610\tBiological scientists
+1640\tConservation scientists and foresters
+1650\tOther life scientists
+1700\tAstronomers and physicists
+1710\tAtmospheric and space scientists
+1720\tChemists and materials scientists
+1745\tEnvironmental scientists and specialists, including health
+1750\tGeoscientists and hydrologists, except geographers
+1760\tPhysical scientists, all other
+1800\tEconomists
+1821\tClinical and counseling psychologists
+1822\tSchool psychologists
+1825\tOther psychologists
+1840\tUrban and regional planners
+1860\tOther social scientists
+1900\tAgricultural and food science technicians
+1910\tBiological technicians
+1920\tChemical technicians
+1935\tEnvironmental science and geoscience technicians, and nuclear technicians
+1970\tOther life, physical, and social science technicians
+1980\tOccupational health and safety specialists and technicians
+2001\tSubstance abuse and behavioral disorder counselors
+2002\tEducational, guidance, and career counselors and advisors
+2003\tMarriage and family therapists
+2004\tMental health counselors
+2005\tRehabilitation counselors
+2006\tCounselors, all other
+2011\tChild, family, and school social workers
+2012\tHealthcare social workers
+2013\tMental health and substance abuse social workers
+2014\tSocial workers, all other
+2015\tProbation officers and correctional treatment specialists
+2016\tSocial and human service assistants
+2025\tOther community and social service specialists
+2040\tClergy
+2050\tDirectors, religious activities and education
+2060\tReligious workers, all other
+2100\tLawyers, and judges, magistrates, and other judicial workers
+2105\tJudicial law clerks
+2145\tParalegals and legal assistants
+2170\tTitle examiners, abstractors, and searchers
+2180\tLegal support workers, all other
+2205\tPostsecondary teachers
+2300\tPreschool and kindergarten teachers
+2310\tElementary and middle school teachers
+2320\tSecondary school teachers
+2330\tSpecial education teachers
+2350\tTutors
+2360\tOther teachers and instructors
+2400\tArchivists, curators, and museum technicians
+2435\tLibrarians and media collections specialists
+2440\tLibrary technicians
+2545\tTeaching assistants
+2555\tOther educational instruction and library workers
+2600\tArtists and related workers
+2631\tCommercial and industrial designers
+2632\tFashion designers
+2633\tFloral designers
+2634\tGraphic designers
+2635\tInterior designers
+2636\tMerchandise displayers and window trimmers
+2640\tOther designers
+2700\tActors
+2710\tProducers and directors
+2721\tAthletes and sports competitors
+2722\tCoaches and scouts
+2723\tUmpires, referees, and other sports officials
+2740\tDancers and choreographers
+2751\tMusic directors and composers
+2752\tMusicians and singers
+2755\tDisc jockeys, except radio
+2770\tEntertainers and performers, sports and related workers, all other
+2805\tBroadcast announcers and radio disc jockeys
+2810\tNews analysts, reporters, and journalists
+2825\tPublic relations specialists
+2830\tEditors
+2840\tTechnical writers
+2850\tWriters and authors
+2861\tInterpreters and translators
+2862\tCourt reporters and simultaneous captioners
+2865\tMedia and communication workers, all other
+2905\tOther media and communication equipment workers
+3000\tChiropractors
+3010\tDentists
+3030\tDietitians and nutritionists
+3040\tOptometrists
+3050\tPharmacists
+3090\tPhysicians
+3100\tSurgeons
+3110\tPhysician assistants
+3120\tPodiatrists
+3140\tAudiologists
+3150\tOccupational therapists
+3160\tPhysical therapists
+3200\tRadiation therapists
+3210\tRecreational therapists
+3220\tRespiratory therapists
+3230\tSpeech-language pathologists
+3245\tOther therapists
+3250\tVeterinarians
+3255\tRegistered nurses
+3256\tNurse anesthetists
+3258\tNurse practitioners, and nurse midwives
+3261\tAcupuncturists
+3270\tHealthcare diagnosing or treating practitioners, all other
+3300\tClinical laboratory technologists and technicians
+3310\tDental hygienists
+3321\tCardiovascular technologists and technicians
+3322\tDiagnostic medical sonographers
+3323\tRadiologic technologists and technicians
+3324\tMagnetic resonance imaging technologists
+3330\tNuclear medicine technologists and medical dosimetrists
+3401\tEmergency medical technicians
+3402\tParamedics
+3421\tPharmacy technicians
+3422\tPsychiatric technicians
+3423\tSurgical technologists
+3424\tVeterinary technologists and laboratory animal caretakers
+3430\tDietetic technicians and ophthalmic medical technicians
+3500\tLicensed practical and licensed vocational nurses
+3515\tMedical records specialists
+3520\tOpticians, dispensing
+3545\tMiscellaneous health technologists and technicians
+3550\tOther healthcare practitioners and technical occupations
+3601\tHome health aides
+3602\tPersonal care aides
+3603\tNursing assistants
+3605\tOrderlies and psychiatric aides
+3610\tOccupational therapy assistants and aides
+3620\tPhysical therapist assistants and aides
+3630\tMassage therapists
+3640\tDental assistants
+3645\tMedical assistants
+3646\tMedical transcriptionists
+3647\tPharmacy aides
+3648\tVeterinary assistants and laboratory animal caretakers
+3649\tPhlebotomists
+3655\tOther healthcare support workers
+3700\tFirst-line supervisors of correctional officers
+3710\tFirst-line supervisors of police and detectives
+3720\tFirst-line supervisors of firefighting and prevention workers
+3725\tMiscellaneous first-line supervisors, protective service workers
+3740\tFirefighters
+3750\tFire inspectors
+3801\tBailiffs
+3802\tCorrectional officers and jailers
+3820\tDetectives and criminal investigators
+3840\tFish and game wardens and parking enforcement officers
+3870\tPolice officers
+3900\tAnimal control workers
+3910\tPrivate detectives and investigators
+3930\tSecurity guards and gaming surveillance workers
+3940\tCrossing guards and flaggers
+3945\tTransportation security screeners
+3946\tSchool bus monitors
+3960\tOther protective service workers
+4000\tChefs and head cooks
+4010\tFirst-line supervisors of food preparation and serving workers
+4020\tCooks
+4030\tFood preparation workers
+4040\tBartenders
+4055\tFast food and counter workers
+4110\tWaiters and waitresses
+4120\tFood servers, nonrestaurant
+4130\tDining room and cafeteria attendants and bartender helpers
+4140\tDishwashers
+4150\tHosts and hostesses, restaurant, lounge, and coffee shop
+4160\tFood preparation and serving related workers, all other
+4200\tFirst-line supervisors of housekeeping and janitorial workers
+4210\tFirst-line supervisors of landscaping, lawn service, and groundskeeping workers
+4220\tJanitors and building cleaners
+4230\tMaids and housekeeping cleaners
+4240\tPest control workers
+4251\tLandscaping and groundskeeping workers
+4252\tTree trimmers and pruners
+4255\tOther grounds maintenance workers
+4330\tSupervisors of personal care and service workers
+4340\tAnimal trainers
+4350\tAnimal caretakers
+4400\tGambling services workers
+4420\tUshers, lobby attendants, and ticket takers
+4435\tOther entertainment attendants and related workers
+4461\tEmbalmers, crematory operators, and funeral attendants
+4465\tMorticians, undertakers, and funeral arrangers
+4500\tBarbers
+4510\tHairdressers, hairstylists, and cosmetologists
+4521\tManicurists and pedicurists
+4522\tSkincare specialists
+4525\tOther personal appearance workers
+4530\tBaggage porters, bellhops, and concierges
+4540\tTour and travel guides
+4600\tChildcare workers
+4621\tExercise trainers and group fitness instructors
+4622\tRecreation workers
+4640\tResidential advisors
+4655\tPersonal care and service workers, all other
+4700\tFirst-line supervisors of retail sales workers
+4710\tFirst-line supervisors of non-retail sales workers
+4720\tCashiers
+4740\tCounter and rental clerks
+4750\tParts salespersons
+4760\tRetail salespersons
+4800\tAdvertising sales agents
+4810\tInsurance sales agents
+4820\tSecurities, commodities, and financial services sales agents
+4830\tTravel agents
+4840\tSales representatives of services, except advertising, insurance, financial services, and travel
+4850\tSales representatives, wholesale and manufacturing
+4900\tModels, demonstrators, and product promoters
+4920\tReal estate brokers and sales agents
+4930\tSales engineers
+4940\tTelemarketers
+4950\tDoor-to-door sales workers, news and street vendors, and related workers
+4965\tSales and related workers, all other
+5000\tFirst-line supervisors of office and administrative support workers
+5010\tSwitchboard operators, including answering service
+5020\tTelephone operators
+5040\tCommunications equipment operators, all other
+5100\tBill and account collectors
+5110\tBilling and posting clerks
+5120\tBookkeeping, accounting, and auditing clerks
+5140\tPayroll and timekeeping clerks
+5150\tProcurement clerks
+5160\tTellers
+5165\tOther financial clerks
+5220\tCourt, municipal, and license clerks
+5230\tCredit authorizers, checkers, and clerks
+5240\tCustomer service representatives
+5250\tEligibility interviewers, government programs
+5260\tFile clerks
+5300\tHotel, motel, and resort desk clerks
+5310\tInterviewers, except eligibility and loan
+5320\tLibrary assistants, clerical
+5330\tLoan interviewers and clerks
+5340\tNew accounts clerks
+5350\tCorrespondence clerks and order clerks
+5360\tHuman resources assistants, except payroll and timekeeping
+5400\tReceptionists and information clerks
+5410\tReservation and transportation ticket agents and travel clerks
+5420\tOther information and records clerks
+5500\tCargo and freight agents
+5510\tCouriers and messengers
+5521\tPublic safety telecommunicators
+5522\tDispatchers, except police, fire, and ambulance
+5530\tMeter readers, utilities
+5540\tPostal service clerks
+5550\tPostal service mail carriers
+5560\tPostal service mail sorters, processors, and processing machine operators
+5600\tProduction, planning, and expediting clerks
+5610\tShipping, receiving, and inventory clerks
+5630\tWeighers, measurers, checkers, and samplers, recordkeeping
+5710\tExecutive secretaries and executive administrative assistants
+5720\tLegal secretaries and administrative assistants
+5730\tMedical secretaries and administrative assistants
+5740\tSecretaries and administrative assistants, except legal, medical, and executive
+5810\tData entry keyers
+5820\tWord processors and typists
+5840\tInsurance claims and policy processing clerks
+5850\tMail clerks and mail machine operators, except postal service
+5860\tOffice clerks, general
+5900\tOffice machine operators, except computer
+5910\tProofreaders and copy markers
+5920\tStatistical assistants
+5940\tOther office and administrative support workers
+6005\tFirst-line supervisors of farming, fishing, and forestry workers
+6010\tAgricultural inspectors
+6040\tGraders and sorters, agricultural products
+6050\tOther agricultural workers
+6115\tFishing and hunting workers
+6120\tForest and conservation workers
+6130\tLogging workers
+6200\tFirst-line supervisors of construction trades and extraction workers
+6210\tBoilermakers
+6220\tBrickmasons, blockmasons, stonemasons, and reinforcing iron and rebar workers
+6230\tCarpenters
+6240\tCarpet, floor, and tile installers and finishers
+6250\tCement masons, concrete finishers, and terrazzo workers
+6260\tConstruction laborers
+6305\tConstruction equipment operators
+6330\tDrywall installers, ceiling tile installers, and tapers
+6355\tElectricians
+6360\tGlaziers
+6400\tInsulation workers
+6410\tPainters and paperhangers
+6441\tPipelayers
+6442\tPlumbers, pipefitters, and steamfitters
+6460\tPlasterers and stucco masons
+6515\tRoofers
+6520\tSheet metal workers
+6530\tStructural iron and steel workers
+6540\tSolar photovoltaic installers
+6600\tHelpers, construction trades
+6660\tConstruction and building inspectors
+6700\tElevator installers and repairers
+6710\tFence erectors
+6720\tHazardous materials removal workers
+6730\tHighway maintenance workers
+6740\tRail-track laying and maintenance equipment operators
+6765\tOther construction and related workers
+6800\tDerrick, rotary drill, and service unit operators, and roustabouts, oil, gas, and mining
+6825\tSurface mining machine operators and earth drillers
+6835\tExplosives workers, ordnance handling experts, and blasters
+6850\tUnderground mining machine operators
+6950\tOther extraction workers
+7000\tFirst-line supervisors of mechanics, installers, and repairers
+7010\tComputer, automated teller, and office machine repairers
+7020\tRadio and telecommunications equipment installers and repairers
+7030\tAvionics technicians
+7040\tElectric motor, power tool, and related repairers
+7100\tOther electrical and electronic equipment mechanics, installers, and repairers
+7120\tElectronic home entertainment equipment installers and repairers
+7130\tSecurity and fire alarm systems installers
+7140\tAircraft mechanics and service technicians
+7150\tAutomotive body and related repairers
+7160\tAutomotive glass installers and repairers
+7200\tAutomotive service technicians and mechanics
+7210\tBus and truck mechanics and diesel engine specialists
+7220\tHeavy vehicle and mobile equipment service technicians and mechanics
+7240\tSmall engine mechanics
+7260\tMiscellaneous vehicle and mobile equipment mechanics, installers, and repairers
+7300\tControl and valve installers and repairers
+7315\tHeating, air conditioning, and refrigeration mechanics and installers
+7320\tHome appliance repairers
+7330\tIndustrial and refractory machinery mechanics
+7340\tMaintenance and repair workers, general
+7350\tMaintenance workers, machinery
+7360\tMillwrights
+7410\tElectrical power-line installers and repairers
+7420\tTelecommunications line installers and repairers
+7430\tPrecision instrument and equipment repairers
+7510\tCoin, vending, and amusement machine servicers and repairers
+7540\tLocksmiths and safe repairers
+7560\tRiggers
+7610\tHelpers--installation, maintenance, and repair workers
+7640\tOther installation, maintenance, and repair workers
+7700\tFirst-line supervisors of production and operating workers
+7720\tElectrical, electronics, and electromechanical assemblers
+7730\tEngine and other machine assemblers
+7740\tStructural metal fabricators and fitters
+7750\tOther assemblers and fabricators
+7800\tBakers
+7810\tButchers and other meat, poultry, and fish processing workers
+7830\tFood and tobacco roasting, baking, and drying machine operators and tenders
+7840\tFood batchmakers
+7850\tFood cooking machine operators and tenders
+7855\tFood processing workers, all other
+7905\tComputer numerically controlled tool operators and programmers
+7925\tForming machine setters, operators, and tenders, metal and plastic
+7950\tCutting, punching, and press machine setters, operators, and tenders, metal and plastic
+8000\tGrinding, lapping, polishing, and buffing machine tool setters, operators, and tenders, metal and plastic
+8025\tOther machine tool setters, operators, and tenders, metal and plastic
+8030\tMachinists
+8040\tMetal furnace operators, tenders, pourers, and casters
+8100\tModel makers, patternmakers, and molding machine setters, metal and plastic
+8130\tTool and die makers
+8140\tWelding, soldering, and brazing workers
+8225\tOther metal workers and plastic workers
+8250\tPrepress technicians and workers
+8255\tPrinting press operators
+8256\tPrint binding and finishing workers
+8300\tLaundry and dry-cleaning workers
+8310\tPressers, textile, garment, and related materials
+8320\tSewing machine operators
+8335\tShoe and leather workers
+8350\tTailors, dressmakers, and sewers
+8365\tTextile machine setters, operators, and tenders
+8450\tUpholsterers
+8465\tOther textile, apparel, and furnishings workers
+8500\tCabinetmakers and bench carpenters
+8510\tFurniture finishers
+8530\tSawing machine setters, operators, and tenders, wood
+8540\tWoodworking machine setters, operators, and tenders, except sawing
+8555\tOther woodworkers
+8600\tPower plant operators, distributors, and dispatchers
+8610\tStationary engineers and boiler operators
+8620\tWater and wastewater treatment plant and system operators
+8630\tMiscellaneous plant and system operators
+8640\tChemical processing machine setters, operators, and tenders
+8650\tCrushing, grinding, polishing, mixing, and blending workers
+8710\tCutting workers
+8720\tExtruding, forming, pressing, and compacting machine setters, operators, and tenders
+8730\tFurnace, kiln, oven, drier, and kettle operators and tenders
+8740\tInspectors, testers, sorters, samplers, and weighers
+8750\tJewelers and precious stone and metal workers
+8760\tDental and ophthalmic laboratory technicians and medical appliance technicians
+8800\tPackaging and filling machine operators and tenders
+8810\tPainting workers
+8830\tPhotographic process workers and processing machine operators
+8850\tAdhesive bonding machine operators and tenders
+8910\tEtchers and engravers
+8920\tMolders, shapers, and casters, except metal and plastic
+8930\tPaper goods machine setters, operators, and tenders
+8940\tTire builders
+8950\tHelpers--production workers
+8990\tMiscellaneous production workers, including equipment operators and tenders
+9005\tSupervisors of transportation and material moving workers
+9030\tAircraft pilots and flight engineers
+9040\tAir traffic controllers and airfield operations specialists
+9050\tFlight attendants
+9110\tAmbulance drivers and attendants, except emergency medical technicians
+9121\tBus drivers, school
+9122\tBus drivers, transit and intercity
+9130\tDriver/sales workers and truck drivers
+9141\tShuttle drivers and chauffeurs
+9142\tTaxi drivers
+9150\tMotor vehicle operators, all other
+9210\tLocomotive engineers and operators
+9240\tRailroad conductors and yardmasters
+9265\tOther rail transportation workers
+9300\tSailors and marine oilers, and ship engineers
+9310\tShip and boat captains and operators
+9350\tParking attendants
+9365\tTransportation service attendants
+9410\tTransportation inspectors
+9415\tPassenger attendants
+9430\tOther transportation workers
+9510\tCrane and tower operators
+9570\tConveyor, dredge, and hoist and winch operators
+9600\tIndustrial truck and tractor operators
+9610\tCleaners of vehicles and equipment
+9620\tLaborers and freight, stock, and material movers, hand
+9630\tMachine feeders and offbearers
+9640\tPackers and packagers, hand
+9645\tStockers and order fillers
+9650\tPumping station operators
+9720\tRefuse and recyclable material collectors
+9760\tOther material moving workers
+9800\tMilitary officer special and tactical operations leaders
+9810\tFirst-line enlisted military supervisors
+9825\tMilitary enlisted tactical operations and air/weapons specialists and crew members
+9830\tMilitary, rank not specified
+9920\tUnemployed, with no work experience in the last 5 years or earlier or never worked
+"",
+  col_names = c(""OCC"", ""occupation"")
+) |>
+  mutate(OCC = as.numeric(OCC))
+"
+"2","[1mRows: [22m[34m530[39m [1mColumns: [22m[34m2[39m"
+"2","[36m──[39m [1mColumn specification[22m [36m──────────────────────────────────────────────────────────────────────────────────────[39m
+[1mDelimiter:[22m ""\t""
+[31mchr[39m (2): OCC, occupation"
+"2","
+[36mℹ[39m Use `spec()` to retrieve the full column specification for this data.
+[36mℹ[39m Specify the column types or set `show_col_types = FALSE` to quiet this message."
+"2","Warning: [38;5;255mThere was 1 warning in `mutate()`.[39m
+[38;5;255m[36mℹ[38;5;255m In argument: `OCC = as.numeric(OCC)`.[39m
+Caused by warning:
+[33m![39m NAs introduced by coercion"
