@@ -1,0 +1,24 @@
+---
+title: "SNAP_Counties"
+format: html
+editor: visual
+---
+
+## Loading Libraries
+
+```{r, echo = FALSE}
+library(ipumsr)
+library(dplyr)
+library(ggplot2)
+library(survey)
+library(srvyr)  
+library(readr)
+```
+
+Loading in Data
+
+Data was taken from [KIDSCOUNT](https://datacenter.aecf.org/data/tables/8983-supplemental-nutrition-assistance-snap-formerly-food-stamps-recipients-total#detailed/2/any/false/1095,2048,574,1729,37,871,870,573,869/any/17942,17941)
+
+```{r}
+snap_data <- read.csv("Supplemental Nutrition Assistance (SNAP, formerly Food Stamps) recipients (total).csv")
+```
